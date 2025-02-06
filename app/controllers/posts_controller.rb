@@ -20,6 +20,7 @@ class PostsController < ApplicationController
     @categories = Category.where(branch: branch)
     @posts = get_posts.paginate(page: params[:page])
   end
+
   def get_posts
     branch = params[:action]
     search = params[:search]
@@ -35,5 +36,6 @@ class PostsController < ApplicationController
       posts = Post.by_category(branch, category).search(search)
     else
     end
+    posts
   end
 end
