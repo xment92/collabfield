@@ -24,6 +24,15 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :private do 
+    resources :conversations, only: [:create] do
+      member do
+        post :close
+      end
+    end
+    resources :messages, only: [:index, :create]
+  end
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
