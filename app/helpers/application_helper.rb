@@ -1,3 +1,5 @@
+include PostsHelper
+
 module ApplicationHelper
   def collapsible_links_partial_path
     if user_signed_in?
