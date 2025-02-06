@@ -63,3 +63,4 @@ gem 'bootstrap_form'
 gem 'faker'
 gem "jquery-rails"
 gem 'will_paginate', '~> 4.0'
+gem 'gon'

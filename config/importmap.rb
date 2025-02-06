@@ -11,3 +11,5 @@ pin "bootstrap", to: 'bootstrap.min.js', preload: true
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin "style", to: "posts/style.js"
 pin "modal", to: "posts/modal.js"
+pin "position", to: "conversations/position_and_visibility.js"
+pin "window", to: "conversations/toggle_windows.js"

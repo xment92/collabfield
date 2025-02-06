@@ -1,4 +1,5 @@
 include PostsHelper
+include Private::ConversationsHelper
 
 module ApplicationHelper
   def collapsible_links_partial_path
