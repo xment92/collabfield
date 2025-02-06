@@ -61,3 +61,4 @@ gem 'sassc-rails'
 gem 'devise'
 gem 'bootstrap_form'
 gem 'faker'
+gem "jquery-rails"
