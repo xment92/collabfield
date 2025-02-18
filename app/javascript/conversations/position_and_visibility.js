@@ -28,7 +28,7 @@ function positionChatWindows() {
     }
 
     // when a new chat window is added, position it to the most left of the list
-    for (i = 0; i < chat_windows_count; i++ ) {
+    for (let i = 0; i < chat_windows_count; i++ ) {
         var right_position = i * 410;
         var chat_window = i + 1;
         $('.conversation-window:nth-of-type(' + chat_window + ')')

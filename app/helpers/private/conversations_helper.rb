@@ -6,6 +6,7 @@ end
 # if the conversation has unshown messages, show a button to get them
 def load_private_messages(conversation)
   if conversation.messages.count > 0 
+    Rails.logger.debug "Messages Count: #{conversation.messages.count}"
     'private/conversations/conversation/messages_list/link_to_previous_messages'
   else
     'shared/empty_partial'

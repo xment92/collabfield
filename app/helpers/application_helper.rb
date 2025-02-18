@@ -1,8 +1,8 @@
-include PostsHelper
-include Private::ConversationsHelper
-include Private::MessagesHelper
-
 module ApplicationHelper
+  include PostsHelper
+  include Private::ConversationsHelper
+  include Private::MessagesHelper
+
   def collapsible_links_partial_path
     if user_signed_in?
       'layouts/navigation/collapsible_elements/signed_in_links'
