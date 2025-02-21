@@ -17,6 +17,4 @@ class Private::ConversationChannel < ApplicationCable::Channel
     end
     Private::Message.create(message_params)
   end
-
-
 end
