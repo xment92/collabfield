@@ -17,6 +17,7 @@ $(document).on('turbo:load', function() {
 
 function positionChatWindows() {
     let chat_windows_count = $('.conversation-window').length;
+    
     // if a new conversation window was added, 
     // set it as the last visible conversation window
     // so the hideShowChatWindow function can hide or show it, 
@@ -43,7 +44,7 @@ function hideShowChatWindow() {
         return;
     }
     // get an offsset of the most left conversation window
-    var offset = $('.conversation-window:nth-of-type(' + gon.last_visible_chat_window + ')').offset();
+    let offset = $('.conversation-window:nth-of-type(' + gon.last_visible_chat_window + ')').offset();
     // if the left offset of the conversation window is less than 50, 
     // hide this conversation window
     if (offset.left < 50 && gon.last_visible_chat_window !== 1) {

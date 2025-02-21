@@ -20,6 +20,14 @@ class Private::ConversationsController < ApplicationController
       end
     end
   end
+  def open
+    @conversation = Private::Conversation.find(params[:id])
+    add_to_conversations unless already_added?
+    respond_to do |format|
+      format.js { render partial: 'private/conversations/open' }
+    end
+  end
+  
   def close
     @conversation_id = params[:id].to_i
     session[:private_conversations].delete(@conversation_id)
@@ -39,5 +47,6 @@ class Private::ConversationsController < ApplicationController
     session[:private_conversations].include?(@conversation.id)
   end
   
+
 
 end

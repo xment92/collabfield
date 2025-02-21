@@ -15,6 +15,7 @@ if (conversation.length !== 1) {
 // Toggle conversation window after its creation
 $('.conversation-window:nth-of-type(' + chat_windows_count + ')\
    .conversation-heading').click();
+
 // mark as seen by clicking it
 setTimeout(function(){ 
   $('.conversation-window:nth-of-type(' + chat_windows_count + ')').click();
@@ -23,6 +24,28 @@ setTimeout(function(){
 $('.conversation-window:nth-of-type(' + chat_windows_count + ')\
    form\
    textarea').focus();
-
 // repositions all conversation windows
+function positionChatWindows() {
+    let chat_windows_count = $('.conversation-window').length;
+    console.log(chat_windows_count);
+    
+    // if a new conversation window was added, 
+    // set it as the last visible conversation window
+    // so the hideShowChatWindow function can hide or show it, 
+    // depending on the viewport's width
+    if (gon.hidden_chats + gon.last_visible_chat_window !== chat_windows_count) {
+        if (gon.hidden_chats == 0) {
+            gon.last_visible_chat_window = chat_windows_count;
+        }
+    }
+
+    // when a new chat window is added, position it to the most left of the list
+    for (let i = 0; i < chat_windows_count; i++ ) {
+        var right_position = i * 410;
+        var chat_window = i + 1;
+        $('.conversation-window:nth-of-type(' + chat_window + ')')
+            .css('right', '' + right_position + 'px');
+    }
+}
+
 positionChatWindows();
