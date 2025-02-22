@@ -1,6 +1,8 @@
 import consumer from "channels/consumer"
+import { calculateUnseenConversations } from "conversation";
+import {findConv,ConvRendered,ConvMessagesVisiblity} from "../shared/conversation"
 
-consumer.subscriptions.create("Private::ConversationChannel", {
+let conversationChanel=consumer.subscriptions.create("Private::ConversationChannel", {
   connected() {
     // Called when the subscription is ready for use on the server    
   },
@@ -36,7 +38,7 @@ consumer.subscriptions.create("Private::ConversationChannel", {
         }
         calculateUnseenConversations();
     }
-    else {
+    else {       
         conversation.find('ul').append(data['message']);
     }
 
@@ -47,16 +49,47 @@ consumer.subscriptions.create("Private::ConversationChannel", {
         messages_list.scrollTop(height);
     }
   },
+
   send_message(message) {
-    return this.perform('send_message', {
+    this.perform('send_message', {
         message: message
     });
+  },
+
+  set_as_seen(conv_id) {
+    this.perform('set_as_seen', { conv_id: conv_id });
   }
 });
 
 $(document).on('submit', '.send-private-message', function(e) {
   e.preventDefault();
   var values = $(this).serializeArray();
-  App.private_conversation.send_message(values);
+  conversationChanel.send_message(values);
   $(this).trigger('reset');
 });
+
+$(document).on('click', '.conversation-window, .private-conversation', function(e) {
+  // if the last message in a conversation is not a user's message and is unseen
+  // mark unseen messages as seen
+  var latest_message = $('.messages-list ul li:last .row div', this);
+  if (latest_message.hasClass('message-received') && latest_message.hasClass('unseen')) {
+      var conv_id = $(this).find('.card').attr('data-pconversation-id');
+      // if conv_id doesn't exist, it means that conversation is opened in messenger
+      if (conv_id == null) {
+          var conv_id = $(this).find('.messages-list').attr('data-pconversation-id');
+      }
+      // mark conversation as seen in conversations menu list
+      latest_message.removeClass('unseen');
+      $('#menu-pc' + conv_id).removeClass('unseen-conv');
+      calculateUnseenConversations();
+      conversationChanel.set_as_seen(conv_id);
+  }
+});
+
+$(document).on('turbo:load', function() {
+  calculateUnseenConversations();
+});
+
+
+
+
