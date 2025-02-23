@@ -23,7 +23,6 @@ Rails.application.routes.draw do
       get 'team'
     end
   end
-
   
   namespace :private do 
     resources :conversations, only: [:create] do
@@ -34,6 +33,7 @@ Rails.application.routes.draw do
     end
     resources :messages, only: [:index, :create]
   end
+  resources :contacts, only: [:create, :update, :destroy]
 
   # Defines the root path route ("/")
   # root "posts#index"
