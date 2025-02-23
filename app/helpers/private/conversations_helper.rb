@@ -21,6 +21,15 @@ def add_to_contacts_partial_path(contact)
   end 
 end
 
+def create_group_conv_partial_path(contact)
+  if recipient_is_contact?
+    'private/conversations/conversation/heading/create_group_conversation'
+  else
+    'shared/empty_partial'
+  end
+end
+
+
 private
 
 def recipient_is_contact?

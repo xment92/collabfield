@@ -10,6 +10,7 @@ import "modal"
 import "position"
 import "conversation"
 import "window"
+import "options"
 import "messages"
 import "channels"
 

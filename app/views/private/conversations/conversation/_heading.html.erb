@@ -10,6 +10,7 @@
       <span class="contact-name-notif text-white" style="font-size: 1.75rem;"><%= @recipient.name %></span>  
     </button>
     <%= render add_to_contacts_partial_path(@contact) %>
+    <%= render create_group_conv_partial_path(@contact), conversation: conversation %>
     <%= link_to "X", 
         close_private_conversation_path(conversation), 
         class: 'close-conversation', 
@@ -20,4 +21,3 @@
 </div>
 <!-- Conversation window's content -->
 <div id="collapse<%= conversation.id %>" class="collapse show" aria-labelledby="heading<%= conversation.id %>" data-bs-parent="#pc<%= conversation.id %>">
-<%= render create_group_conv_partial_path, conversation: conversation %>

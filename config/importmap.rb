@@ -15,6 +15,7 @@ pin "position", to: "conversations/position_and_visibility.js"
 pin "window", to: "conversations/toggle_windows.js"
 pin "conversation", to: "conversations/conversation.js"
 pin "messages", to: "conversations/messages_infinite_scroll.js"
+pin "options", to: "conversations/options.js"
 pin "@rails/actioncable", to: "actioncable.esm.js"
 pin_all_from "app/javascript/channels", under: "channels"
 
