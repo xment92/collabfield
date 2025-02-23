@@ -1,5 +1,5 @@
 <!-- Heading with Toggle functionality -->
-<div class="card-header conversation-heading" id="heading<%= conversation.id %>">
+<div class="card-header <%= conv_heading_class(@contact) %>" id="heading<%= conversation.id %>">
   <h5 class="mb-0">
     <button class="btn w-90 text-start" 
             type="button" 
@@ -19,3 +19,4 @@
 </div>
 <!-- Conversation window's content -->
 <div id="collapse<%= conversation.id %>" class="collapse show" aria-labelledby="heading<%= conversation.id %>" data-bs-parent="#pc<%= conversation.id %>">
+<%= render add_to_contacts_partial_path(@contact) %>
