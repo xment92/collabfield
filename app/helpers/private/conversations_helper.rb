@@ -92,4 +92,10 @@ def request_sent_by_user(contact)
   contact['user_id'] == current_user.id
 end
 
+def contacts_except_recipient(recipient)
+  contacts = current_user.all_active_contacts
+  # return all contacts, except the opposite user of the chat
+  contacts.delete_if {|contact| contact.id == recipient.id }
+end
+
 end
