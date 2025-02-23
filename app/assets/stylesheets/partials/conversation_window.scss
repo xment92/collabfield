@@ -31,10 +31,17 @@ textarea {
     color: white !important;
     height: 40px;
     border: none !important;
+    display: flex; /* Use flexbox to manage the layout */
+    justify-content: space-between; /* Space out the elements */
+    align-items: center; /* Vertically align the elements */
     a {
       color: white !important;
     }
   
+  }
+  button.btn {
+    margin-right: auto; /* Push the button to the left side */
+    float: left; /* Ensures the button aligns left */
   }
   
   .conversation-heading, .conversation-heading-full {
@@ -47,6 +54,7 @@ textarea {
   
   .close-conversation, .add-people-to-chat, .add-user-to-contacts, .contact-request-sent {
     color: white;
+    margin-left: 10px;
     float: right;
     height: 40px;
     width: 40px;
@@ -160,6 +168,7 @@ textarea {
   }
   
   .add-user-to-contacts {
+    float: left;
     display: none;
     i {
       opacity: 0.8;

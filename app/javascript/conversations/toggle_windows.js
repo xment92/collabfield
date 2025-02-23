@@ -8,6 +8,19 @@ $(document).on('turbo:load', function() {
         var panel = $(this).parent();
         var panel_body = panel.find('.card-body');
         var messages_list = panel.find('.messages-list');
+        // if window is collapsed, hide conversation menu options
+        if ( panel_body.css('display') == 'none' ) {
+            panel.find('.add-people-to-chat,\
+                        .add-user-to-contacts,\
+                        .contact-request-sent').show();
+
+        } else { // show conversation menu options
+            panel.find('.add-people-to-chat,\
+                        .add-user-to-contacts,\
+                        .contact-request-sent').hide();
+            // focus textarea
+            $('form textarea', this).focus();
+        }
 
         panel_body.toggle(100, function() {           
             var messages_visible = $('ul', this).has('li').length;
