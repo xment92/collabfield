@@ -1,0 +1,26 @@
+<!-- Heading with Toggle functionality -->
+<div class="card-header conversation-heading" id="heading<%= conversation.id %>">
+  <h5 class="mb-0">
+    <button class="btn w-90 text-start" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#collapse<%= conversation.id %>" 
+            aria-expanded="true" 
+            aria-controls="collapse<%= conversation.id %>">
+      <span class="contact-name-notif text-white" style="font-size: 1.75rem;"><%= truncate(conversation.name, :length => 40) %></span>  
+    </button>
+   <%= link_to "X", 
+            close_group_conversation_path(conversation), 
+            class: 'close-conversation', 
+            title: 'Close', 
+            remote: true, 
+            method: :post %>
+  </h5>
+</div>
+<div class="add-people-to-chat" title="Add people to chat">
+  <div>
+    <i class="fa fa-plus" aria-hidden="true" data-toggle="dropdown"></i>
+  </div>
+</div>
+<!-- Conversation window's content -->
+<div id="collapse<%= conversation.id %>" class="collapse show" aria-labelledby="heading<%= conversation.id %>" data-bs-parent="#pc<%= conversation.id %>">
