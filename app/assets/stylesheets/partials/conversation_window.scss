@@ -7,7 +7,7 @@ textarea {
     border: none !important;
   }
   
-  .panel-heading {
+  .card-header {
     border-radius: 0;
   }
   
@@ -31,18 +31,19 @@ textarea {
     color: white !important;
     height: 40px;
     border: none !important;
-    display: flex; /* Use flexbox to manage the layout */
-    justify-content: space-between; /* Space out the elements */
-    align-items: center; /* Vertically align the elements */
+    //display: flex; /* Use flexbox to manage the layout */
+    //justify-content: space-between; /* Space out the elements */
+    //align-items: center; /* Vertically align the elements */
     a {
       color: white !important;
     }
   
   }
-  button.btn {
-    margin-right: auto; /* Push the button to the left side */
-    float: left; /* Ensures the button aligns left */
-  }
+
+  // button.btn {
+  //   margin-right: auto; /* Push the button to the left side */
+  //   float: left; /* Ensures the button aligns left */
+  // }
   
   .conversation-heading, .conversation-heading-full {
     padding: 0 0 0 15px;
@@ -51,10 +52,14 @@ textarea {
     vertical-align: middle;
     line-height: 40px;
   }
+
+  .contact-name-notif{
+    float: left;
+  }
   
   .close-conversation, .add-people-to-chat, .add-user-to-contacts, .contact-request-sent {
     color: white;
-    margin-left: 10px;
+    //margin-left: 10px;
     float: right;
     height: 40px;
     width: 40px;

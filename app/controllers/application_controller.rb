@@ -30,6 +30,7 @@ class ApplicationController < ActionController::Base
   def all_ordered_conversations 
     if user_signed_in?
       @all_conversations = OrderConversationsService.new({user: current_user}).call
+      Rails.logger.debug("all_conversations#{@all_conversations.inspect}")
     end
   end
   

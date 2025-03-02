@@ -31,11 +31,11 @@ class Group::NewConversationService
   private
 
   def create_initial_message(creator, arr_of_users_ids, new_group_conversation)
-    message = Group::Message.create(
-      user_id: creator.id, 
-      content: 'Conversation created by ' + creator.name, 
-      added_new_users: arr_of_users_ids , 
-      conversation_id: new_group_conversation.id
+    message = Group::Message.create(user_id: creator.id, 
+                                    content: 'Conversation created by ' + creator.name, 
+                                    added_new_users: arr_of_users_ids , 
+                                    conversation_id: new_group_conversation.id,
+                                    seen_by: [creator.id]                               
     )
     message
   end

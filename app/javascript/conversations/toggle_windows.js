@@ -4,6 +4,9 @@ $(document).on('turbo:load', function() {
     $('body').on('click', 
                  '.card-header', 
                  function(e) {
+        if ($(e.target).closest('.close-conversation, .add-people-to-chat, .add-user-to-contacts, .contact-request-sent').length) {
+            return; // Do nothing if the click was on one of these elements
+        }
         e.preventDefault();
         var panel = $(this).parent();
         var panel_body = panel.find('.card-body');

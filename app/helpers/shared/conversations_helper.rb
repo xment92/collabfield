@@ -12,7 +12,9 @@ module Shared::ConversationsHelper
     # if the current_user is nil, it means that the helper is called from the service
     # return an empty string
     if current_user == nil
-      ''
+      return '' 
+    elsif conversation.messages.last == nil
+      return ''
     else
       # if the last message of the conversation is not created by this user
       # and is unseen, return an unseen-conv value
@@ -21,5 +23,4 @@ module Shared::ConversationsHelper
       not_created_by_user && seen_by_user == false ? 'unseen-conv' : ''
     end
   end
-  
 end
