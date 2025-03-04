@@ -1,5 +1,5 @@
 import consumer from "channels/consumer"
-import { calculateUnseenConversations } from "conversation";
+import {calculateUnseenConversations } from "conversation";
 import {findConv,ConvRendered,ConvMessagesVisiblity} from "../shared/conversation"
 
 let conversationChanel=consumer.subscriptions.create("Private::ConversationChannel", {
