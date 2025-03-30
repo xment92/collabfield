@@ -25,7 +25,7 @@
 
             <%= f.submit "Log in", class: 'form-control login-button' %>
         <% end %>
-
+    <%= button_to 'Login with Google', user_google_oauth2_omniauth_authorize_path, method: :post, :data => {turbo: "false"}, class: 'google-login-btn'  %>
     </div>
   </div> 
 </div>

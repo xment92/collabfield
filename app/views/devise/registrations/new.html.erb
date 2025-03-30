@@ -1,5 +1,5 @@
 <div class="container" id="sign-up-form">
-  <div class="row">
+  <div class="row justify-content-center"">
     <h1>Get in touch with like-minded people</h1>
     <h3>Create, study, accomplish goals together</h3>
 
@@ -24,8 +24,9 @@
                               class: 'form-control' %>
           <%= f.submit 'Sign up', class: 'btn sign-up-button' %>
         <% end %>
-
-    </div>
+        <br>
+      <%= button_to 'Sign up with Google', user_google_oauth2_omniauth_authorize_path, method: :post, :data => {turbo: "false"}, class: 'google-login-btn'  %>
+    </div>    
   </div>
 </div>
 

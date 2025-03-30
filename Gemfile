@@ -64,3 +64,6 @@ gem 'faker'
 gem "jquery-rails"
 gem 'will_paginate', '~> 4.0'
 gem 'gon'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
+gem 'dotenv-rails', groups: [:development, :test]
