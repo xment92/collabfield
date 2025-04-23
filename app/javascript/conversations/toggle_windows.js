@@ -4,7 +4,7 @@ $(document).on('turbo:load', function() {
     $('body').on('click', 
                  '.card-header', 
                  function(e) {
-        if ($(e.target).closest('.close-conversation, .add-people-to-chat, .add-user-to-contacts, .contact-request-sent').length) {
+        if ($(e.target).closest('.close-conversation, .add-people-to-chat, .add-user-to-contacts, .contact-request-sent, .select-users-to-chat').length) {
             return; // Do nothing if the click was on one of these elements
         }
         e.preventDefault();
