@@ -240,6 +240,7 @@ GEM
     parser (3.3.7.1)
       ast (~> 2.4.1)
       racc
+    pg (1.5.9)
     popper_js (2.11.8)
     pp (0.6.2)
       prettyprint
@@ -429,6 +430,7 @@ DEPENDENCIES
   jquery-rails
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
+  pg
   puma (>= 5.0)
   rails (~> 7.2.2, >= 7.2.2.1)
   rubocop-rails-omakase
