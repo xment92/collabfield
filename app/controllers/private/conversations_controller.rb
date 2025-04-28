@@ -6,7 +6,7 @@ class Private::ConversationsController < ApplicationController
 
 
     if @conversation.save
-      Private::Message.create(user_id: recipient_id, 
+      Private::Message.create(user_id: current_user.id, 
                               conversation_id: @conversation.id, 
                               body: params[:message_body])
 
